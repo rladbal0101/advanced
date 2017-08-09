@@ -9,6 +9,7 @@
       width:100%;
       height:100%;
       position:absolute;
+      overflow:hidden;
     }
     .inner-box{
       position:absolute;
@@ -17,7 +18,7 @@
     }
     .list{
       white-space: nowrap;
-
+      transition:all 1s ease-out;
     }
     .list-item{
       display:inline;
@@ -43,14 +44,9 @@
           scrollAmount = -($('.list').width() - $(window).width() );
         }
 
-        $('body').stop().animate({
-          scrollLeft : -scrollAmount   // scrollAmount 에 마이너스(-)
-        }, 300);
-
-        /*
-          ** scrollLeft 함수를 사용해서 구현하기
-           $(window).scrollLeft(-scrollAmount/10);
-        */
+        $('.list').css({
+          transform : 'translateX(' + scrollAmount + 'px)'
+        });
 
       });
 
